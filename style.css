@@ -1,0 +1,100 @@
+/* === google fonts========  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* golobal reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Inter", sans-serif;
+}
+
+/* colors */
+:root {
+  --primary-color: #ff9800;
+  --hover-color: #f57c00;
+  --main-bg: #ffffff;
+  --text-color: #212121;
+  --sections-bg: #f5f5f5;
+  --borders: #eeeeee;
+}
+body {
+ background-color: var(--sections-bg);
+}
+/* utilits=== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* header */
+header{
+  background-color: var(--main-bg);
+  height: 70px;
+  position: sticky;
+  width: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+ 
+}
+header .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: red; */
+}
+/* logo */
+.logo{
+ font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  cursor: pointer;
+} 
+.logo img{
+  width: 200px;
+  height: 50px;
+}
+/* navbar */
+.navbar{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.navbar a{
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: 0.3s ease;
+}
+.navbar a:hover{
+  color: var(--hover-color);
+}
+#home{
+  color: var(--hover-color);
+}
+/* header icons */
+header .container .header-icons{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.search i, .favorate-icon i, .cart-icon i, .user-icon i{
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
