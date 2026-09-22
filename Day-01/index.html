@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js practice</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      input,
+      button {
+        border: none;
+        outline: none;
+      }
+      input {
+        border: 1px solid #333;
+        padding: 6px 25px;
+        border-radius: 4px;
+      }
+      button {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 6px 25px;
+        border-radius: 4px;
+        background-color: blue;
+        color: #fff;
+        transition: 0.3s ease;
+      }
+      button:hover {
+        background-color: #2929e6;
+      }
+     #show-me{
+        background-color: #fff;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+          padding: 16px 8px;
+          width: 200px;
+          border-radius: 5px;
+          font-size: 16px;
+          font-weight: 500;
+          text-transform: capitalize;
+          display: none;
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="name" placeholder="enter your name...." required/>
+    <button id="btn">show me</button>
+    <p id="show-me"></p>
+
+    <h1>Welcome to my website</h1>
+    <p id="p">Click the button below.</p>
+    <button id="click-me">click me</button>
+    <button id="reset">Reset</button>
+    <!-- ================== -->
+     <p id="more"></p>
+     <button id="moreBtn">click more</button>
+
+    <!-- js -->
+    <script src="./script.js"></script>
+  </body>
+</html>
