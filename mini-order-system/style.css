@@ -1,0 +1,181 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    border: none;
+    outline: none;
+}
+
+body {
+    background-color: #dfe2e5;
+}
+
+header {
+    background-color: #fff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+
+}
+
+header i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.orderpage {
+    position: absolute;
+    right: 0;
+    top: 70px;
+    width: 400px;
+    min-height: 100vh;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+.active{
+    opacity: 1;
+    visibility: visible;
+    /* transform: translateX(-10px); */
+}
+.orderpage h2 {
+    border-bottom: 1.5px solid #333;
+}
+
+.orders {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.order {
+    background-color: #fffeff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    
+    gap: 1rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+}
+.delete-btn{
+   background: none;
+    color: #be0505;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+header h1 {
+
+    color: orange;
+    /* text-align: center; */
+}
+
+.conatiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.searchArea {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.searchArea input {
+    width: 70%;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+.categories,
+.food-menu {
+    width: 80%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 1rem;
+
+}
+
+.btns button {
+    background-color: blue;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btns button:hover {
+    transform: translateY(-5px);
+    background-color: #0c0cca;
+}
+
+.food-lists {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    transition: 0.3s ease;
+}
+.card:hover{
+    transform: translateY(-5px);
+}
+.card h2 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.order-btn {
+    background-color: #f8a100;
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.order-btn:hover {
+    background-color: #d18902;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI FOOD ORDER-SYSTEM</title>
+    <!-- css file -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <h1>NORMAL RESTAURANT</h1>
+        <i class="fa-solid fa-cart-shopping " id="order-page"></i>
+    </header>
+    <!-- order page -->
+    <div class="orderpage">
+        <h2>Orders</h2>
+       <div class="orderItems">
+
+       </div>
+       <!-- total orders -->
+        <h4 id="total-orders">Total Orders:0</h4>
+    </div>
+    <div class="conatiner">
+        <!-- search  -->
+        <div class="searchArea">
+            <label>Search food:</label>
+            <input type="text" id="search-input" placeholder="search foods...">
+           
+        </div>
+        <!-- Categories -->
+        <div class="categories">
+            <h2>Categories</h2>
+            <div class="btns">
+                <button data-category="all">All</button>
+                <button data-category="breakfast">BreakFast</button>
+                <button data-category="fast-food">Fast Food</button>
+                <button data-category="drinks">Drinsk</button>
+
+            </div>
+        </div>
+        <!-- food menu -->
+        <div class="food-menu">
+            <h2>Food menu</h2>
+            <div class="food-lists">
+
+
+            </div>
+        </div>
+
+    </div>
+    <!-- js file -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
