@@ -1,0 +1,124 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #e6e6e6;
+    min-height: 100vh;
+}
+header{
+    background-color: #3a46b4;
+    color: #fff;
+    height: 70px;
+    text-align: center;
+    padding: 1rem;
+}
+header h1{
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+main{
+    max-width: 1200px;
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+/* students form */
+.forms{
+    flex: 1;
+    background-color: #fff;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem 1.5rem 2rem;
+    border-radius: 10px;
+}
+.forms form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+form .form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.form-group input{
+    padding: 0.5rem 1.25rem;
+    border: 1.5px solid #983cfa;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 100%;
+}
+.form-group label{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0d0e14;
+}
+#addBtn{
+    background-color: #611fc4;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+#addBtn:hover{
+ background-color: #7940cf;   
+}
+/* students lists */
+.students-table{
+    flex: 2;
+    background-color: #fff;
+   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+   padding: 1rem 1.5rem;
+   border-radius: 10px;
+}
+.students-table h2{
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #983cfa;
+}
+.students-table table{
+    width: 100%;
+    border-collapse: collapse;
+}
+ th,  td{
+   padding: 0.5rem 1rem;
+    text-align: left;
+}
+th{
+    background-color: #e6e6e6;
+    font-size: 1rem;
+    font-weight: 400;
+     letter-spacing: 0.5px;
+}
+tbody tr:nth-child(even){
+    background-color: #632ab9;
+    color: #fff;
+}
+tbody tr:last-of-type {
+  border-bottom: 1.5px solid #7a63c9;
+}
+/* tbody tr:hover {
+  background-color: #8051c7; 
+  cursor: pointer;
+} */
