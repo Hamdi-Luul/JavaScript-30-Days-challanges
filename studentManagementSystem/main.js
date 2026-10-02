@@ -8,7 +8,9 @@ const cityInput = document.getElementById('cityInput');
 const gradeInput = document.getElementById('gradeInput');
 const phoneInput = document.getElementById('phoneInput');
 const addBtn = document.getElementById('addBtn');
+const addStudentsBtn=document.getElementById('add-btn');
 const studentsLists = document.querySelector('.students-lists');
+const forms = document.querySelector('.forms');
 
 let students = [];
 // add students
@@ -68,6 +70,11 @@ function studentsRender(array) {
         <td>${student.city}</td>
         <td>${student.grade}</td>
         <td>${student.phone}</td>
+        <td>
+        <button>edit</btutton>
+        <button>view</btutton>
+        <button>delete</btutton>
+        </td>
         
         `;
         studentsLists.appendChild(trElement);
@@ -76,3 +83,9 @@ function studentsRender(array) {
 
 }
 studentsRender(students);
+//addStudentsBtn
+addStudentsBtn.addEventListener('click',()=>{
+    forms.classList.toggle('active');
+    console.log(forms)
+
+})
