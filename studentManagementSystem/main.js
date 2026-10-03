@@ -8,9 +8,13 @@ const cityInput = document.getElementById('cityInput');
 const gradeInput = document.getElementById('gradeInput');
 const phoneInput = document.getElementById('phoneInput');
 const addBtn = document.getElementById('addBtn');
-const addStudentsBtn=document.getElementById('add-btn');
+const addStudentsBtn = document.getElementById('add-btn');
 const studentsLists = document.querySelector('.students-lists');
 const forms = document.querySelector('.forms');
+const closeBtn = document.querySelector('#closeBtn');
+closeBtn.addEventListener("click", () => {
+    forms.classList.remove("active");
+})
 
 let students = [];
 // add students
@@ -70,10 +74,10 @@ function studentsRender(array) {
         <td>${student.city}</td>
         <td>${student.grade}</td>
         <td>${student.phone}</td>
-        <td>
-        <button>edit</btutton>
-        <button>view</btutton>
-        <button>delete</btutton>
+        <td class="btns">
+        <button class="editBtn">Edit</btutton>
+        <button class="viewBtn">View</btutton>
+        <button class="deleteBtn" data-id="${student.id}">Delete</btutton>
         </td>
         
         `;
@@ -84,8 +88,20 @@ function studentsRender(array) {
 }
 studentsRender(students);
 //addStudentsBtn
-addStudentsBtn.addEventListener('click',()=>{
+addStudentsBtn.addEventListener('click', () => {
     forms.classList.toggle('active');
-    console.log(forms)
-
 })
+
+// delete student
+const deleteBtn=document.querySelectorAll('.deleteBtn');
+ deleteBtn.forEach(button =>{
+   button.addEventListener('click',(event)=>{
+    const btnId=event.target.dataset.id;
+    console.log(btnId)
+   })
+console.log(button)
+ })
+
+
+
+
