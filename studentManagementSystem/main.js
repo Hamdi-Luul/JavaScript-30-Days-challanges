@@ -76,8 +76,8 @@ function studentsRender(array) {
         <td>${student.grade}</td>
         <td>${student.phone}</td>
         <td class="btns">
-        <button class="editBtn">Edit</button>
-        <button class="viewBtn">View</button>
+        <button class="editBtn" data-id="${student.id}">Edit</button>
+        <button class="viewBtn" data-id="${student.id}">View</button>
         <button class="deleteBtn" data-id="${student.id}">Delete</button>
         </td>
         
@@ -98,8 +98,8 @@ function deleteStudent(){
     studentsLists.addEventListener('click',(event)=>{
         if(event.target.classList.contains('deleteBtn')){
             const btnId=event.target.dataset.id;
-            students=students.find(student => student.id !==btnId)
-            studentsRender(students);
+            students=students.filter(student => student.id !==btnId)
+           studentsRender(students);
         }
     })
 }
