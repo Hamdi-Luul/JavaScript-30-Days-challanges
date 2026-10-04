@@ -57,6 +57,7 @@ addBtn.addEventListener('click', (event) => {
     event.preventDefault();
     addStudents()
     studentsRender(students);
+     forms.classList.remove("active");
 })
 
 //students rendering
@@ -75,9 +76,9 @@ function studentsRender(array) {
         <td>${student.grade}</td>
         <td>${student.phone}</td>
         <td class="btns">
-        <button class="editBtn">Edit</btutton>
-        <button class="viewBtn">View</btutton>
-        <button class="deleteBtn" data-id="${student.id}">Delete</btutton>
+        <button class="editBtn">Edit</button>
+        <button class="viewBtn">View</button>
+        <button class="deleteBtn" data-id="${student.id}">Delete</button>
         </td>
         
         `;
@@ -86,22 +87,23 @@ function studentsRender(array) {
 
 
 }
-studentsRender(students);
+// studentsRender(students);
 //addStudentsBtn
 addStudentsBtn.addEventListener('click', () => {
     forms.classList.toggle('active');
 })
 
 // delete student
-const deleteBtn=document.querySelectorAll('.deleteBtn');
- deleteBtn.forEach(button =>{
-   button.addEventListener('click',(event)=>{
-    const btnId=event.target.dataset.id;
-    console.log(btnId)
-   })
-console.log(button)
- })
-
+function deleteStudent(){
+    studentsLists.addEventListener('click',(event)=>{
+        if(event.target.classList.contains('deleteBtn')){
+            const btnId=event.target.dataset.id;
+            students=students.find(student => student.id !==btnId)
+            studentsRender(students);
+        }
+    })
+}
+deleteStudent()
 
 
 
