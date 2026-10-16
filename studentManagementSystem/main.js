@@ -57,7 +57,7 @@ addBtn.addEventListener('click', (event) => {
     event.preventDefault();
     addStudents()
     studentsRender(students);
-     forms.classList.remove("active");
+    forms.classList.remove("active");
 })
 
 //students rendering
@@ -76,7 +76,7 @@ function studentsRender(array) {
         <td>${student.grade}</td>
         <td>${student.phone}</td>
         <td class="btns">
-        <button class="editBtn" data-id="${student.id}">Edit</button>
+        <button class="editBtn" data-id="${student.id}" >Edit</button>
         <button class="viewBtn" data-id="${student.id}">View</button>
         <button class="deleteBtn" data-id="${student.id}">Delete</button>
         </td>
@@ -94,16 +94,41 @@ addStudentsBtn.addEventListener('click', () => {
 })
 
 // delete student
-function deleteStudent(){
-    studentsLists.addEventListener('click',(event)=>{
-        if(event.target.classList.contains('deleteBtn')){
-            const btnId=event.target.dataset.id;
-            students=students.filter(student => student.id !==btnId)
-           studentsRender(students);
+function deleteStudent() {
+    studentsLists.addEventListener('click', (event) => {
+        if (event.target.classList.contains('deleteBtn')) {
+            const btnId = event.target.dataset.id;
+            students = students.filter(student => student.id !== btnId)
+            studentsRender(students);
         }
     })
 }
 deleteStudent()
 
+//edit students
+function editStudents() {
+    studentsLists.addEventListener('click', (event) => {
+        if (event.target.classList.contains('editBtn')) {
+             forms.classList.toggle('active');
+             addBtn.textContent="Save changes";
+             studentsRender(students);
+            const buttonId = event.target.dataset.id;
+            students = students.find(student => student.id == buttonId)
+           
+            //fill inputs
 
 
+           // Fill the inputs
+            idInput.value = students.id;
+            nameInput.value = students.name;
+            classInput.value = students.class;
+            ageInput.value = students.age;
+            cityInput.value = students.city;
+            gradeInput.value = students.grade;
+            phoneInput.value = students.phone;
+
+        }
+    })
+}
+
+ editStudents()
