@@ -1,9 +1,8 @@
 // DOM ELEMENTS SELECTING.
 const cartIcon = document.querySelector('.cart-icon');
 const cartSection = document.querySelector('.cart-section');
-
 const productsSection = document.querySelector('#products-section');
-const total = document.querySelector('total');
+const total = document.querySelector('.total');
 const cartCount = document.getElementById("cart-count");
 
 
@@ -38,7 +37,7 @@ let products = [
 ]
 // CART DATA
 let cart = [];
-let totalPrice = 0;
+let totalPrice = 0.00;
 
 
 //CART ICON TOGLING
@@ -68,7 +67,7 @@ function renderProducts() {
                 <img src="${product.image}" alt="NIKE-1">
                     <h3 class="name">${product.name}</h3> 
                 <div class="price">
-                    <h2 id="price"> $${product.price}</h2>
+                    <h2 id="price"> $${product.price.toFixed(2)}</h2>
                 </div>
                 
                 <div class="cart-btn">
@@ -115,6 +114,7 @@ function addToCart() {
             }
             //call here cart render function
             displayCartIems();
+            calculateTotalPrice();
             //CALL COUNT CART ITEMS FUNCTION HERE.
             countCartIems();
 
@@ -131,8 +131,6 @@ function countCartIems() {
 
     }, 0)
 }
-
-
 
 //GENERATE / RENDER CART ITEMS IN THE CART PAGE.
 /*
@@ -173,20 +171,28 @@ function displayCartIems() {
 
         //apend items on the page
         cartSection.appendChild(itemCard);
-       
-        console.log(cartSection)
+        //  console.log(cartSection)
+
     })
     const totalPrice = document.createElement("div");
     totalPrice.classList.add("total-price");
     totalPrice.innerHTML = `<h3 class="total">Total:0</h3>`;
-     cartSection.appendChild(totalPrice);
-
-
+    cartSection.appendChild(totalPrice);
+   
 
 }
 
 
+//CALCULATE THE TOTAL PRICE OF THE ITEMS.
 
+function calculateTotalPrice() {
+    totalPrice = cart.reduce((total, item) => {
+        return total + (item.quantity * item.price)
+    }, 0)
+    //    console.log(totalPrice)
+  total.textContent = `$${totalPrice}`;
+    // console.log(total)
+}
 
 
 
