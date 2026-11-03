@@ -2,7 +2,8 @@
 const cartIcon = document.querySelector('.cart-icon');
 const cartSection = document.querySelector('.cart-section');
 const productsSection = document.querySelector('#products-section');
-const total = document.querySelector('.total');
+
+
 const cartCount = document.getElementById("cart-count");
 
 
@@ -186,12 +187,12 @@ function displayCartIems() {
 //CALCULATE THE TOTAL PRICE OF THE ITEMS.
 
 function calculateTotalPrice() {
+    const total = document.querySelector('.total');
     totalPrice = cart.reduce((total, item) => {
         return total + (item.quantity * item.price)
     }, 0)
     //    console.log(totalPrice)
-  total.textContent = `$${totalPrice}`;
-    // console.log(total)
+         total.textContent = `Total:$${totalPrice.toFixed(2)}`; 
 }
 
 
