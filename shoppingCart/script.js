@@ -2,8 +2,7 @@
 const cartIcon = document.querySelector('.cart-icon');
 const cartSection = document.querySelector('.cart-section');
 const productsSection = document.querySelector('#products-section');
-
-
+const massage = document.querySelector(".massage");
 const cartCount = document.getElementById("cart-count");
 
 
@@ -15,21 +14,21 @@ const cartCount = document.getElementById("cart-count");
 let products = [
     {
         id: 1,
-        name: 'nice-1',
+        name: 'nike-1',
         image: 'images/nice1.jpg',
         price: 8,
         quantity: 1
     },
     {
         id: 2,
-        name: 'nice-2',
+        name: 'nike-2',
         image: 'images/nice2.jpg',
         price: 12,
         quantity: 1
     },
     {
         id: 3,
-        name: 'nice-3',
+        name: 'nike-3',
         image: 'images/nice3.jpg',
         price: 11,
         quantity: 1
@@ -103,6 +102,7 @@ function addToCart() {
             if (existingItem) {
                 existingItem.quantity++;
 
+
             } else {
                 cart.push({
                     id: selectedProduct.id,
@@ -111,6 +111,8 @@ function addToCart() {
                     price: selectedProduct.price,
                     quantity: 1
                 });
+                massage.textContent = "New item was added";
+                massage.style.color = "green";
 
             }
             //call here cart render function
@@ -161,7 +163,7 @@ function displayCartIems() {
                 <div class="quantity-control">
                     <button class="quantity-decrease">&minus;</button>
                     <h4 class="quantity">${item.quantity}</h4>
-                    <button class="quantity-increase">&plus;</button>
+                    <button class="quantity-increase" data-id="${item.id}">&plus;</button>
                 </div>
            
                 <div class="remove-button">
@@ -174,14 +176,14 @@ function displayCartIems() {
         cartSection.appendChild(itemCard);
         //  console.log(cartSection)
 
-    })
+
+    });
     const totalPrice = document.createElement("div");
     totalPrice.classList.add("total-price");
     totalPrice.innerHTML = `<h3 class="total">Total:0</h3>`;
     cartSection.appendChild(totalPrice);
-   
-
-}
+    //increaseQuantity();
+};
 
 
 //CALCULATE THE TOTAL PRICE OF THE ITEMS.
@@ -192,11 +194,30 @@ function calculateTotalPrice() {
         return total + (item.quantity * item.price)
     }, 0)
     //    console.log(totalPrice)
-         total.textContent = `Total:$${totalPrice.toFixed(2)}`; 
+    total.textContent = `Total:$${totalPrice.toFixed(2)}`;
 }
 
+//INCREASE QUIANTITY OF THE ITEM
 
+function increaseQuantity() {
+    cartSection.addEventListener('click', (event) => {
+        if (event.target.classList.contains("quantity-increase")) {
+            //get the item was clicked
+            const itemId = Number(event.target.dataset.id);
+            const getItem = cart.find(item => item.id === itemId);
+            const cartItem = event.target.closest(".cart-item");
+            //console.log(cartItem)
+            const quantityDisplay = cartItem.querySelector(".quantity");
+            //console.log(quantityDisplay)
+            quantityDisplay.textContent = ++getItem.quantity;
+            calculateTotalPrice();
+            countCartIems();
 
+        };
+    });
+};
+
+ increaseQuantity();
 
 
 
