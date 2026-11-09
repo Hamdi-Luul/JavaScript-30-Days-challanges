@@ -215,7 +215,7 @@ function increaseQuantity() {
     });
 };
 
- increaseQuantity();
+increaseQuantity();
 
 // DECRESE QUINTITY BTN.
 /*
@@ -227,17 +227,25 @@ REMOVE THE ITEM WAS CLICKED.
 4.UDATE THE PAGE.
 
 */
-function decreseQuantity(){
-      cartSection.addEventListener('click', (event) => {
+function decreseQuantity() {
+    cartSection.addEventListener('click', (event) => {
         if (event.target.classList.contains("quantity-decrease")) {
             //get the item was clicked
             const itemId = Number(event.target.dataset.id);
-            const getItem = cart.filter(item => item.id !== itemId);
-            console.log(getItem)
+            const getItem = cart.find(item => item.id === itemId);
             const cartItem = event.target.closest(".cart-item");
             const quantityDisplay = cartItem.querySelector(".quantity");
-            quantityDisplay.textContent = getItem.quantity--;
-            console.log(quantityDisplay)
+             quantityDisplay.textContent = --getItem.quantity;
+            if (getItem.quantity < 1) {
+                //remove the item in array
+                cart = cart.filter(item => item.id !== itemId);
+                //remove from the page
+                cartItem.remove();
+            } else {
+                quantityDisplay.textContent = --getItem.quantity;
+
+            }
+
             calculateTotalPrice();
             countCartIems();
 
