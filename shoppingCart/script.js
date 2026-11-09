@@ -239,12 +239,10 @@ function decreseQuantity() {
             if (getItem.quantity < 1) {
                 //remove the item in array
                 cart = cart.filter(item => item.id !== itemId);
+                console.log(cart)
                 //remove from the page
                 cartItem.remove();
-            } else {
-                quantityDisplay.textContent = --getItem.quantity;
-
-            }
+            } 
 
             calculateTotalPrice();
             countCartIems();
