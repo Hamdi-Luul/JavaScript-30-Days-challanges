@@ -161,7 +161,7 @@ function displayCartIems() {
                     <h2 id="price"> ${item.price}</h2>
                 </div>
                 <div class="quantity-control">
-                    <button class="quantity-decrease">&minus;</button>
+                    <button class="quantity-decrease"  data-id="${item.id}">&minus;</button>
                     <h4 class="quantity">${item.quantity}</h4>
                     <button class="quantity-increase" data-id="${item.id}">&plus;</button>
                 </div>
@@ -206,9 +206,7 @@ function increaseQuantity() {
             const itemId = Number(event.target.dataset.id);
             const getItem = cart.find(item => item.id === itemId);
             const cartItem = event.target.closest(".cart-item");
-            //console.log(cartItem)
             const quantityDisplay = cartItem.querySelector(".quantity");
-            //console.log(quantityDisplay)
             quantityDisplay.textContent = ++getItem.quantity;
             calculateTotalPrice();
             countCartIems();
@@ -219,6 +217,32 @@ function increaseQuantity() {
 
  increaseQuantity();
 
+// DECRESE QUINTITY BTN.
+/*
+1. SELECT THE BTN.
+2. GET THE ITEM WAS CLICKED.
+3.FILTER THE ITEMS IN THE CART AND IF THE ITEM'S 
+QUNTITY LESS THAN ONE
+REMOVE THE ITEM WAS CLICKED.
+4.UDATE THE PAGE.
 
+*/
+function decreseQuantity(){
+      cartSection.addEventListener('click', (event) => {
+        if (event.target.classList.contains("quantity-decrease")) {
+            //get the item was clicked
+            const itemId = Number(event.target.dataset.id);
+            const getItem = cart.filter(item => item.id !== itemId);
+            console.log(getItem)
+            const cartItem = event.target.closest(".cart-item");
+            const quantityDisplay = cartItem.querySelector(".quantity");
+            quantityDisplay.textContent = getItem.quantity--;
+            console.log(quantityDisplay)
+            calculateTotalPrice();
+            countCartIems();
 
+        };
+    });
 
+}
+decreseQuantity()
