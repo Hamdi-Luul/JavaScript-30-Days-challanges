@@ -2,11 +2,7 @@
 const cartIcon = document.querySelector('.cart-icon');
 const cartSection = document.querySelector('.cart-section');
 const productsSection = document.querySelector('#products-section');
-const massage = document.querySelector(".massage");
 const cartCount = document.getElementById("cart-count");
-
-
-
 
 
 // PRODUCTS DATA
@@ -38,11 +34,10 @@ let products = [
 // CART DATA
 let cart = [];
 let totalPrice = 0.00;
-
-
 //CART ICON TOGLING
 cartIcon.addEventListener('click', () => {
     cartSection.classList.toggle('active');
+    //cartSection.innerHTML=`<h1>Your cart itmes</h1>`;
 
 });
 
@@ -90,7 +85,6 @@ renderProducts();
 
 function addToCart() {
     productsSection.addEventListener('click', (event) => {
-
         if (event.target.classList.contains("add-cart-btn")) {
             //get the id the product was clicked.
             const itemId = Number(event.target.dataset.id);
@@ -111,9 +105,7 @@ function addToCart() {
                     price: selectedProduct.price,
                     quantity: 1
                 });
-                massage.textContent = "New item was added";
-                massage.style.color = "green";
-
+                
             }
             //call here cart render function
             displayCartIems();
@@ -158,7 +150,7 @@ function displayCartIems() {
                 <h3 class="name">${item.name}</h3>
                
                 <div class="price">
-                    <h2 id="price"> ${item.price}</h2>
+                    <h2 id="price"> $${item.price}.00</h2>
                 </div>
                 <div class="quantity-control">
                     <button class="quantity-decrease"  data-id="${item.id}">&minus;</button>
@@ -167,22 +159,19 @@ function displayCartIems() {
                 </div>
            
                 <div class="remove-button">
-                    <button id="remove-btn">&times;</button>
+                    <button class="remove-btn" data-id="${item.id}">&times;</button>
                 </div>
                 
         `;
-
+       
         //apend items on the page
         cartSection.appendChild(itemCard);
-        //  console.log(cartSection)
-
-
+         
     });
     const totalPrice = document.createElement("div");
     totalPrice.classList.add("total-price");
     totalPrice.innerHTML = `<h3 class="total">Total:0</h3>`;
     cartSection.appendChild(totalPrice);
-    //increaseQuantity();
 };
 
 
@@ -192,8 +181,7 @@ function calculateTotalPrice() {
     const total = document.querySelector('.total');
     totalPrice = cart.reduce((total, item) => {
         return total + (item.quantity * item.price)
-    }, 0)
-    //    console.log(totalPrice)
+    }, 0);
     total.textContent = `Total:$${totalPrice.toFixed(2)}`;
 }
 
@@ -214,7 +202,6 @@ function increaseQuantity() {
         };
     });
 };
-
 increaseQuantity();
 
 // DECRESE QUINTITY BTN.
@@ -224,7 +211,7 @@ increaseQuantity();
 3.FILTER THE ITEMS IN THE CART AND IF THE ITEM'S 
 QUNTITY LESS THAN ONE
 REMOVE THE ITEM WAS CLICKED.
-4.UDATE THE PAGE.
+4.UDATE THE PAGE.gg
 
 */
 function decreseQuantity() {
@@ -235,14 +222,14 @@ function decreseQuantity() {
             const getItem = cart.find(item => item.id === itemId);
             const cartItem = event.target.closest(".cart-item");
             const quantityDisplay = cartItem.querySelector(".quantity");
-             quantityDisplay.textContent = --getItem.quantity;
+            quantityDisplay.textContent = --getItem.quantity;
             if (getItem.quantity < 1) {
                 //remove the item in array
                 cart = cart.filter(item => item.id !== itemId);
-                console.log(cart)
+               
                 //remove from the page
                 cartItem.remove();
-            } 
+            }
 
             calculateTotalPrice();
             countCartIems();
@@ -252,3 +239,22 @@ function decreseQuantity() {
 
 }
 decreseQuantity()
+//DELETE BUTUON
+function deleteItem() {
+
+    cartSection.addEventListener('click', (event) => {
+        if (event.target.classList.contains("remove-btn")) {
+            //get the item was clicked
+            const itemId = Number(event.target.dataset.id);
+            const getItem = cart = cart.filter(item => item.id !== itemId);
+            const cartItem = event.target.closest(".cart-item");
+            cartItem.remove();
+            calculateTotalPrice();
+            countCartIems();
+
+        };
+    });
+
+}
+deleteItem();
+
